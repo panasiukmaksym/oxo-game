@@ -452,21 +452,31 @@ function checking() {
 
 function actionForComputer(number) {
   setTimeout(function(){
-    card[number].classList.add("cross");
-    card[number].style.cursor = "default";
-    now = true;
-    winner.innerHTML = "Сейчас ходят - Нолики";
-    activeCard[number] = true;
-    whyAtBox[number] = 'cross';
-  }, 1000);
+    if ( activeCard[number] == false ) {
+      card[number].classList.add("cross");
+      card[number].style.cursor = "default";
+      now = true;
+      winner.innerHTML = "Сейчас ходят - Нолики";
+      activeCard[number] = true;
+      whyAtBox[number] = 'cross';
+    } else {
+      let randomNumber = getRandom();
+      card[randomNumber].classList.add("cross");
+      card[randomNumber].style.cursor = "default";
+      now = true;
+      winner.innerHTML = "Сейчас ходят - Нолики";
+      activeCard[randomNumber] = true;
+      whyAtBox[randomNumber] = 'cross';
+    }
+    checking();
+
+  }, 500);
 }
 
 let whyAtBox = [ '' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ];
 let step = 0;
 
 // HAND ON TORCH
-
-pveActive = true;
 
 card.forEach((item, i) => {
 
@@ -495,7 +505,7 @@ card.forEach((item, i) => {
 
     if ( pveActive == true ) {
 
-      let whyHim = whyAtBox.indexOf('circles');
+      // let whyHim = whyAtBox.indexOf('circles');
 
       if ( step == 1 ) {
 
@@ -595,10 +605,74 @@ card.forEach((item, i) => {
 
       } else if ( step == 3 ) {
 
-        if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' ) {
+        if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' && whyAtBox[3] == 'circles' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' && whyAtBox[4] == 'circles' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' && whyAtBox[5] == 'circles' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' && whyAtBox[6] == 'circles' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[4] == 'circles' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[5] == 'circles' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[6] == 'circles' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[4] == 'circles' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[5] == 'circles' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[5] == 'circles' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[6] == 'circles' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[5] == 'circles' && whyAtBox[7] == 'circles' ) {
           actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[6] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[4] == 'circles' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[5] == 'circles' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[6] == 'circles' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[4] == 'circles' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[5] == 'circles' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[5] == 'circles' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[6] == 'circles' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[5] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(0);
+        } else if ( whyAtBox[1] == 'circles' && whyAtBox[5] == 'circles' && whyAtBox[6] == 'circles' ) {
+          actionForComputer(0);
+        } else if ( whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[4] == 'circles' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[5] == 'circles' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(0);
         }
 
+      } else {
+        actionForComputer(getRandomPve());
       }
 
     }
@@ -611,6 +685,80 @@ card.forEach((item, i) => {
 let inter;
 let activeAuto = false;
 
+function getRandom() {
+  let number = Math.floor(Math.random() * 8);
+
+  if ( arrAct[number] == true ) {
+    if ( arrAct[number + 1] == false ) {
+      number++;
+    } else if ( arrAct[number - 1] == false ) {
+      number--;
+    } else if ( arrAct[number - 2] == false ) {
+      number -= 2;
+    } else if ( arrAct[number + 2] == false ) {
+      number += 2;
+    } else if ( arrAct[number - 3] == false ) {
+      number -= 3;
+    } else if ( arrAct[number + 3] == false ) {
+      number += 3;
+    } else if ( arrAct[number - 4] == false ) {
+      number -= 4;
+    } else if ( arrAct[number + 4] == false ) {
+      number += 4;
+    } else if ( arrAct[number - 5] == false ) {
+      number -= 5;
+    } else if ( arrAct[number + 5] == false ) {
+      number += 5;
+    } else if ( arrAct[number - 6] == false ) {
+      number -= 6;
+    } else if ( arrAct[number + 6] == false ) {
+      number += 6;
+    } else if ( arrAct[number - 7] == false ) {
+      number -= 7;
+    } else if ( arrAct[number + 7] == false ) {
+      number += 7;
+    }
+  }
+  return number;
+}
+
+function getRandomPve() {
+  let number = Math.floor(Math.random() * 8);
+
+  if ( activeCard[number] == true ) {
+    if ( activeCard[number + 1] == false ) {
+      number++;
+    } else if ( activeCard[number - 1] == false ) {
+      number--;
+    } else if ( activeCard[number - 2] == false ) {
+      number -= 2;
+    } else if ( activeCard[number + 2] == false ) {
+      number += 2;
+    } else if ( activeCard[number - 3] == false ) {
+      number -= 3;
+    } else if ( activeCard[number + 3] == false ) {
+      number += 3;
+    } else if ( activeCard[number - 4] == false ) {
+      number -= 4;
+    } else if ( activeCard[number + 4] == false ) {
+      number += 4;
+    } else if ( activeCard[number - 5] == false ) {
+      number -= 5;
+    } else if ( activeCard[number + 5] == false ) {
+      number += 5;
+    } else if ( activeCard[number - 6] == false ) {
+      number -= 6;
+    } else if ( activeCard[number + 6] == false ) {
+      number += 6;
+    } else if ( activeCard[number - 7] == false ) {
+      number -= 7;
+    } else if ( activeCard[number + 7] == false ) {
+      number += 7;
+    }
+  }
+  return number;
+}
+
 varEve.addEventListener('click', () => {
   if ( activeAuto == false ) {
   
@@ -618,39 +766,7 @@ varEve.addEventListener('click', () => {
 
   inter = setInterval(function(){
 
-    let number = Math.floor(Math.random() * 8);
-
-    if ( arrAct[number] == true && number != 8 ) {
-      if ( arrAct[number + 1] == false ) {
-        number++;
-      } else if ( arrAct[number - 1] == false ) {
-        number--;
-      } else if ( arrAct[number - 2] == false ) {
-        number -= 2;
-      } else if ( arrAct[number + 2] == false ) {
-        number += 2;
-      } else if ( arrAct[number - 3] == false ) {
-        number -= 3;
-      } else if ( arrAct[number + 3] == false ) {
-        number += 3;
-      } else if ( arrAct[number - 4] == false ) {
-        number -= 4;
-      } else if ( arrAct[number + 4] == false ) {
-        number += 4;
-      } else if ( arrAct[number - 5] == false ) {
-        number -= 5;
-      } else if ( arrAct[number + 5] == false ) {
-        number += 5;
-      } else if ( arrAct[number - 6] == false ) {
-        number -= 6;
-      } else if ( arrAct[number + 6] == false ) {
-        number += 6;
-      } else if ( arrAct[number - 7] == false ) {
-        number -= 7;
-      } else if ( arrAct[number + 7] == false ) {
-        number += 7;
-      }
-    }
+    let number = getRandom();
 
     if (activeCard[number] == false) {
 
