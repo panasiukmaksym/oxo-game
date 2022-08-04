@@ -45,6 +45,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    display: none;
 }
 
 .middle {
@@ -81,14 +82,14 @@
 
 .chess {
     width: 400px;
-    margin: 50px auto;
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     padding: 10px 0px;
     background: orange;
-    margin-bottom: 300px;
+    margin-bottom: 100px;
 }
 
 .chess__card {
@@ -114,6 +115,25 @@
     left: 29px;
 }
 
+.variable {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+.variable__card {
+    background: grey;
+    padding: 10px;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+img {
+    width: 40px;
+}
+
 .reload {
     border: 2px solid black;
     cursor: pointer;
@@ -124,12 +144,11 @@
 h2 {
     text-align: center;
     display: block;
-    width: 350px;
     margin: 20px auto;
+    max-width: 400px;
 }
 
 h1 {
     text-align: center;
-    margin-top: 500px;
-    cursor: pointer;
+    margin-top: 30px;
 }
