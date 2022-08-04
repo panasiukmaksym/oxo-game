@@ -261,7 +261,7 @@ block.addEventListener("click", function () {
   }
 });
 
-// Circles - Cross
+// Circles - Cross OXO GAMES IS DOWN
 
 const card = document.querySelectorAll(".chess__card");
 let now = true;
@@ -514,25 +514,67 @@ card.forEach((item, i) => {
 
       if ( step == 1 ) {
 
-        if ( activeCard[0] == true ) {
-          actionForComputer(8);
-        } else if ( activeCard[1] == true ) {
-          actionForComputer(8);
-        } else if ( activeCard[2] == true ) {
-          actionForComputer(8);
-        } else if ( activeCard[3] == true ) {
-          actionForComputer(8);
-        } else if ( activeCard[4] == true ) {
-          actionForComputer(8);
-        } else if ( activeCard[5] == true ) {
-          actionForComputer(8);
-        } else if ( activeCard[6] == true ) {
-          actionForComputer(8);
-        } else if ( activeCard[7] == true ) {
-          actionForComputer(8);
-        } else if ( activeCard[8] == true ) {
-          actionForComputer(0);
+        let ranNum = Math.floor(Math.random() * 4);
+
+        // if ( ranNum == 0 || ranNum == 2 || ranNum == 6 || ranNum == 8 ) 
+        console.log(ranNum);
+        if ( ranNum == 0 && activeCard[0] == false ) {
+          ranNum = 0;
+        } else if ( ranNum == 1 && activeCard[2] == false ) {
+          ranNum = 2;
+        } else if ( ranNum == 2 && activeCard[6] == false ) {
+          ranNum = 6;
+        } else if ( ranNum == 3 && activeCard[8] == false ) {
+          ranNum = 8;
+        } else if ( activeCard[6] == false ) {
+          ranNum = 6;
+        } else if ( activeCard[8] == false) {
+          ranNum = 8;
         }
+        console.log(ranNum);
+
+          if ( activeCard[0] == true ) {
+            actionForComputer(ranNum);
+          } else if ( activeCard[1] == true ) {
+            actionForComputer(ranNum);
+          } else if ( activeCard[2] == true ) {
+            actionForComputer(ranNum);
+          } else if ( activeCard[3] == true ) {
+            actionForComputer(ranNum);
+          } else if ( activeCard[4] == true ) {
+            actionForComputer(ranNum);
+          } else if ( activeCard[5] == true ) {
+            actionForComputer(ranNum);
+          } else if ( activeCard[6] == true ) {
+            actionForComputer(ranNum);
+          } else if ( activeCard[7] == true ) {
+            actionForComputer(ranNum);
+          } else if ( activeCard[8] == true ) {
+            actionForComputer(ranNum);
+          }
+
+        
+
+        // VERSION WITHOUT RANDOM FIRST NUMBER
+        // if ( activeCard[0] == true ) {
+        //   actionForComputer(8);
+        // } else if ( activeCard[1] == true ) {
+        //   actionForComputer(8);
+        // } else if ( activeCard[2] == true ) {
+        //   actionForComputer(8);
+        // } else if ( activeCard[3] == true ) {
+        //   actionForComputer(8);
+        // } else if ( activeCard[4] == true ) {
+        //   actionForComputer(8);
+        // } else if ( activeCard[5] == true ) {
+        //   actionForComputer(8);
+        // } else if ( activeCard[6] == true ) {
+        //   actionForComputer(8);
+        // } else if ( activeCard[7] == true ) {
+        //   actionForComputer(8);
+        // } else if ( activeCard[8] == true ) {
+        //   actionForComputer(0);
+        // }
 
       } else if ( step == 2 ) {
 
@@ -543,13 +585,15 @@ card.forEach((item, i) => {
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[3] == 'circles' ) {
           actionForComputer(6);
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[4] == 'circles' ) {
-          actionForComputer(2);
+          actionForComputer(8);
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[5] == 'circles' ) {
           actionForComputer(6);
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[6] == 'circles' ) {
           actionForComputer(3);
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[7] == 'circles' ) {
           actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circles' && whyAtBox[8] == 'circles' ) {
+          actionForComputer(4);
         } else if ( whyAtBox[8] == 'circles' && whyAtBox[1] == 'circles' ) {
           actionForComputer(6);
         } else if ( whyAtBox[8] == 'circles' && whyAtBox[2] == 'circles' ) {
@@ -557,7 +601,7 @@ card.forEach((item, i) => {
         } else if ( whyAtBox[8] == 'circles' && whyAtBox[3] == 'circles' ) {
           actionForComputer(2);
         } else if ( whyAtBox[8] == 'circles' && whyAtBox[4] == 'circles' ) {
-          actionForComputer(6);
+          actionForComputer(0);
         } else if ( whyAtBox[8] == 'circles' && whyAtBox[5] == 'circles' ) {
           actionForComputer(2);
         } else if ( whyAtBox[8] == 'circles' && whyAtBox[6] == 'circles' ) {
@@ -652,6 +696,58 @@ card.forEach((item, i) => {
           actionForComputer(3);
         } else if ( whyAtBox[8] == 'cross' && whyAtBox[7] == 'cross' && whyAtBox[6] == '' ) {
           actionForComputer(6);
+        } else if ( whyAtBox[0] == 'cross' && whyAtBox[4] == 'cross' && whyAtBox[8] == '' ) {
+          actionForComputer(8);
+        } else if ( whyAtBox[6] == 'cross' && whyAtBox[4] == 'cross' && whyAtBox[2] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[1] == 'circle' && whyAtBox[2] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[2] == 'circle' && whyAtBox[1] == '' ) {
+          actionForComputer(1);
+        } else if ( whyAtBox[1] == 'circle' && whyAtBox[2] == 'circle' && whyAtBox[0] == '' ) {
+          actionForComputer(0);
+        } else if ( whyAtBox[3] == 'circle' && whyAtBox[4] == 'circle' && whyAtBox[5] == '' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[3] == 'circle' && whyAtBox[5] == 'circle' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[4] == 'circle' && whyAtBox[5] == 'circle' && whyAtBox[3] == '' ) {
+          actionForComputer(3);
+        } else if ( whyAtBox[6] == 'circle' && whyAtBox[7] == 'circle' && whyAtBox[8] == '' ) {
+          actionForComputer(8);
+        } else if ( whyAtBox[6] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[7] == '' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[7] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[6] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[4] == 'circle' && whyAtBox[8] == '' ) {
+          actionForComputer(8);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[4] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[0] == '' ) {
+          actionForComputer(0);
+        } else if ( whyAtBox[2] == 'circle' && whyAtBox[4] == 'circle' && whyAtBox[6] == '' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[2] == 'circle' && whyAtBox[6] == 'circle' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[4] == 'circle' && whyAtBox[6] == 'circle' && whyAtBox[2] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[3] == 'circle' && whyAtBox[6] == '' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[6] == 'circle' && whyAtBox[3] == '' ) {
+          actionForComputer(3);
+        } else if ( whyAtBox[6] == 'circle' && whyAtBox[3] == 'circle' && whyAtBox[0] == '' ) {
+          actionForComputer(0);
+        } else if ( whyAtBox[1] == 'circle' && whyAtBox[4] == 'circle' && whyAtBox[7] == '' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[1] == 'circle' && whyAtBox[7] == 'circle' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[4] == 'circle' && whyAtBox[7] == 'circle' && whyAtBox[1] == '' ) {
+          actionForComputer(1);
+        } else if ( whyAtBox[2] == 'circle' && whyAtBox[5] == 'circle' && whyAtBox[8] == '' ) {
+          actionForComputer(8);
+        } else if ( whyAtBox[2] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[5] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[5] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[2] == '' ) {
+          actionForComputer(2);
         } else {
 
           if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' && whyAtBox[3] == 'circles' ) {
@@ -669,7 +765,7 @@ card.forEach((item, i) => {
           } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[4] == 'circles' ) {
             actionForComputer(6);
           } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[5] == 'circles' ) {
-            actionForComputer(6);
+            actionForComputer(1);
           } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[6] == 'circles' ) {
             actionForComputer(4);
           } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[7] == 'circles' ) {
@@ -677,7 +773,9 @@ card.forEach((item, i) => {
           } else if ( whyAtBox[0] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[4] == 'circles' ) {
             actionForComputer(7);
           } else if ( whyAtBox[0] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[5] == 'circles' ) {
-            actionForComputer(7);
+            actionForComputer(6);
+          } else if ( whyAtBox[0] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[8] == 'circles' ) {
+            actionForComputer(5);
           } else if ( whyAtBox[0] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[5] == 'circles' ) {
             actionForComputer(7);
           } else if ( whyAtBox[0] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[6] == 'circles' ) {
@@ -713,7 +811,7 @@ card.forEach((item, i) => {
           } else if ( whyAtBox[1] == 'circles' && whyAtBox[5] == 'circles' && whyAtBox[6] == 'circles' ) {
             actionForComputer(0);
           } else if ( whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[4] == 'circles' ) {
-            actionForComputer(7);
+            actionForComputer(5);
           } else if ( whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[5] == 'circles' ) {
             actionForComputer(7);
           } else if ( whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[7] == 'circles' ) {
@@ -747,8 +845,8 @@ card.forEach((item, i) => {
           actionForComputer(4);
         } else if ( whyAtBox[2] == 'cross' && whyAtBox[8] == 'cross' && whyAtBox[5] == '' ) {
           actionForComputer(5);
-        } else if ( whyAtBox[0] == 'cross' && whyAtBox[8] == 'cross' && whyAtBox[5] == '' ) {
-          actionForComputer(5);
+        } else if ( whyAtBox[0] == 'cross' && whyAtBox[8] == 'cross' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
         } else if ( whyAtBox[0] == 'cross' && whyAtBox[3] == 'cross' && whyAtBox[6] == '' ) {
           actionForComputer(6);
         } else if ( whyAtBox[1] == 'cross' && whyAtBox[4] == 'cross' && whyAtBox[7] == '' ) {
@@ -773,6 +871,58 @@ card.forEach((item, i) => {
           actionForComputer(3);
         } else if ( whyAtBox[8] == 'cross' && whyAtBox[7] == 'cross' && whyAtBox[6] == '' ) {
           actionForComputer(6);
+        } else if ( whyAtBox[0] == 'cross' && whyAtBox[4] == 'cross' && whyAtBox[8] == '' ) {
+          actionForComputer(8);
+        } else if ( whyAtBox[6] == 'cross' && whyAtBox[4] == 'cross' && whyAtBox[2] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[1] == 'circle' && whyAtBox[2] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[2] == 'circle' && whyAtBox[1] == '' ) {
+          actionForComputer(1);
+        } else if ( whyAtBox[1] == 'circle' && whyAtBox[2] == 'circle' && whyAtBox[0] == '' ) {
+          actionForComputer(0);
+        } else if ( whyAtBox[3] == 'circle' && whyAtBox[4] == 'circle' && whyAtBox[5] == '' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[3] == 'circle' && whyAtBox[5] == 'circle' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[4] == 'circle' && whyAtBox[5] == 'circle' && whyAtBox[3] == '' ) {
+          actionForComputer(3);
+        } else if ( whyAtBox[6] == 'circle' && whyAtBox[7] == 'circle' && whyAtBox[8] == '' ) {
+          actionForComputer(8);
+        } else if ( whyAtBox[6] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[7] == '' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[7] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[6] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[4] == 'circle' && whyAtBox[8] == '' ) {
+          actionForComputer(8);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[4] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[0] == '' ) {
+          actionForComputer(0);
+        } else if ( whyAtBox[2] == 'circle' && whyAtBox[4] == 'circle' && whyAtBox[6] == '' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[2] == 'circle' && whyAtBox[6] == 'circle' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[4] == 'circle' && whyAtBox[6] == 'circle' && whyAtBox[2] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[3] == 'circle' && whyAtBox[6] == '' ) {
+          actionForComputer(6);
+        } else if ( whyAtBox[0] == 'circle' && whyAtBox[6] == 'circle' && whyAtBox[3] == '' ) {
+          actionForComputer(3);
+        } else if ( whyAtBox[6] == 'circle' && whyAtBox[3] == 'circle' && whyAtBox[0] == '' ) {
+          actionForComputer(0);
+        } else if ( whyAtBox[1] == 'circle' && whyAtBox[4] == 'circle' && whyAtBox[7] == '' ) {
+          actionForComputer(7);
+        } else if ( whyAtBox[1] == 'circle' && whyAtBox[7] == 'circle' && whyAtBox[4] == '' ) {
+          actionForComputer(4);
+        } else if ( whyAtBox[4] == 'circle' && whyAtBox[7] == 'circle' && whyAtBox[1] == '' ) {
+          actionForComputer(1);
+        } else if ( whyAtBox[2] == 'circle' && whyAtBox[5] == 'circle' && whyAtBox[8] == '' ) {
+          actionForComputer(8);
+        } else if ( whyAtBox[2] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[5] == '' ) {
+          actionForComputer(2);
+        } else if ( whyAtBox[5] == 'circle' && whyAtBox[8] == 'circle' && whyAtBox[2] == '' ) {
+          actionForComputer(2);
         } else {
           actionForComputer(getRandomPve());
         }
