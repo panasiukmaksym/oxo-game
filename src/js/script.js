@@ -300,13 +300,16 @@ function nulling(){
     arrAct[i] = false;
     item.style.cursor = "pointer";
     reload.style.opacity = "0";
-    winner.innerHTML = "Сейчас ходят - Нолики";
+    winner.innerHTML = "ЗАРАЗ ХОДЯТЬ - НОЛІКИ";
     now = true;
     winner.style.background = 'white';
     winner.style.color = 'black';
     whyAtBox[i] = '';
     step = 0;
   });
+  if ( varPve.style.background == 'orange' ) {
+    pveActive = true;
+  }
 }
 
 reload.addEventListener("click", function () {
@@ -319,10 +322,11 @@ reload.addEventListener("click", function () {
 });
 
 function searchWinner(formFactor) {
+  pveActive = false;
   if (formFactor == "cross") {
-    winner.innerHTML = "ПОБЕДИЛИ - КРЕСТИКИ";
+    winner.innerHTML = "ПЕРЕМОГЛИ - ХРЕСТИКИ";
   } else if (formFactor == "circles") {
-    winner.innerHTML = "ПОБЕДИЛИ - НОЛИКИ";
+    winner.innerHTML = "ПЕРЕМОГЛИ - НОЛИКИ";
   }
   winner.style.background = 'purple';
   winner.style.color = 'orange';
@@ -342,9 +346,10 @@ function searchWinner(formFactor) {
 function checking() {
   let full = activeCard.includes(false);
   if (!full) {
+    pveActive = false;
     reload.style.opacity = "1";
     winner.style.opacity = "1";
-    winner.innerHTML = "НИЧЬЯ";
+    winner.innerHTML = "НІЧІЯ";
     winner.style.padding = '10px';
     winner.style.background = 'green';
     card.forEach( (item, i) => {
@@ -456,15 +461,15 @@ function actionForComputer(number) {
       card[number].classList.add("cross");
       card[number].style.cursor = "default";
       now = true;
-      winner.innerHTML = "Сейчас ходят - Нолики";
+      winner.innerHTML = "ЗАРАЗ ХОДЯТЬ - НОЛІКИ";
       activeCard[number] = true;
       whyAtBox[number] = 'cross';
     } else {
-      let randomNumber = getRandom();
+      let randomNumber = getRandomPve();
       card[randomNumber].classList.add("cross");
       card[randomNumber].style.cursor = "default";
       now = true;
-      winner.innerHTML = "Сейчас ходят - Нолики";
+      winner.innerHTML = "ЗАРАЗ ХОДЯТЬ - НОЛІКИ";
       activeCard[randomNumber] = true;
       whyAtBox[randomNumber] = 'cross';
     }
@@ -487,7 +492,7 @@ card.forEach((item, i) => {
         this.classList.add("circles");
         this.style.cursor = "default";
         now = false;
-        winner.innerHTML = "Сейчас ходят - Крестики";
+        winner.innerHTML = "ЗАРАЗ ХОДЯТЬ - ХРЕСТИКИ";
         activeCard[i] = true;
         whyAtBox[i] = 'circles';
         step++;
@@ -495,7 +500,7 @@ card.forEach((item, i) => {
         this.classList.add("cross");
         this.style.cursor = "default";
         now = true;
-        winner.innerHTML = "Сейчас ходят - Нолики";
+        winner.innerHTML = "ЗАРАЗ ХОДЯТЬ - НОЛІКИ";
         activeCard[i] = true;
         whyAtBox[i] = 'cross';
         step++;
@@ -570,7 +575,7 @@ card.forEach((item, i) => {
         } else if ( whyAtBox[1] == 'circles' && whyAtBox[6] == 'circles' ) {
           actionForComputer(2);
         } else if ( whyAtBox[1] == 'circles' && whyAtBox[7] == 'circles' ) {
-          actionForComputer(2);
+          actionForComputer(4);
         } else if ( whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' ) {
           actionForComputer(6);
         } else if ( whyAtBox[2] == 'circles' && whyAtBox[4] == 'circles' ) {
@@ -578,13 +583,13 @@ card.forEach((item, i) => {
         } else if ( whyAtBox[2] == 'circles' && whyAtBox[5] == 'circles' ) {
           actionForComputer(6);
         } else if ( whyAtBox[2] == 'circles' && whyAtBox[6] == 'circles' ) {
-          actionForComputer(0);
+          actionForComputer(4);
         } else if ( whyAtBox[2] == 'circles' && whyAtBox[7] == 'circles' ) {
           actionForComputer(0);
         } else if ( whyAtBox[3] == 'circles' && whyAtBox[4] == 'circles' ) {
           actionForComputer(5);
         } else if ( whyAtBox[3] == 'circles' && whyAtBox[5] == 'circles' ) {
-          actionForComputer(6);
+          actionForComputer(4);
         } else if ( whyAtBox[3] == 'circles' && whyAtBox[6] == 'circles' ) {
           actionForComputer(0);
         } else if ( whyAtBox[3] == 'circles' && whyAtBox[7] == 'circles' ) {
@@ -614,7 +619,7 @@ card.forEach((item, i) => {
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' && whyAtBox[6] == 'circles' ) {
           actionForComputer(5);
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[1] == 'circles' && whyAtBox[7] == 'circles' ) {
-          actionForComputer(5);
+          actionForComputer(2);
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' ) {
           actionForComputer(6);
         } else if ( whyAtBox[0] == 'circles' && whyAtBox[2] == 'circles' && whyAtBox[4] == 'circles' ) {
@@ -652,11 +657,11 @@ card.forEach((item, i) => {
         } else if ( whyAtBox[1] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[4] == 'circles' ) {
           actionForComputer(7);
         } else if ( whyAtBox[1] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[5] == 'circles' ) {
-          actionForComputer(7);
+          actionForComputer(6);
         } else if ( whyAtBox[1] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[7] == 'circles' ) {
           actionForComputer(2);
         } else if ( whyAtBox[1] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[5] == 'circles' ) {
-          actionForComputer(6);
+          actionForComputer(7);
         } else if ( whyAtBox[1] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[6] == 'circles' ) {
           actionForComputer(2);
         } else if ( whyAtBox[1] == 'circles' && whyAtBox[5] == 'circles' && whyAtBox[7] == 'circles' ) {
@@ -669,9 +674,17 @@ card.forEach((item, i) => {
           actionForComputer(7);
         } else if ( whyAtBox[2] == 'circles' && whyAtBox[3] == 'circles' && whyAtBox[7] == 'circles' ) {
           actionForComputer(0);
+        } else if ( whyAtBox[2] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[8] == 'circles' ) {
+          actionForComputer(5);
+        } else if ( whyAtBox[2] == 'circles' && whyAtBox[4] == 'circles' && whyAtBox[7] == 'circles' ) {
+          actionForComputer(1);
+        } else if ( whyAtBox[4] == 'circles' && whyAtBox[5] == 'circles' && whyAtBox[6] == 'circles' ) {
+          actionForComputer(2);
+        } else {
+          actionForComputer(getRandomPve());
         }
 
-      } else {
+      } else if ( step > 3 ) {
         actionForComputer(getRandomPve());
       }
 
@@ -723,9 +736,10 @@ function getRandom() {
 }
 
 function getRandomPve() {
+
   let number = Math.floor(Math.random() * 8);
 
-  if ( activeCard[number] == true ) {
+  if ( activeCard[number] == true && activeCard[number] < 9 ) {
     if ( activeCard[number + 1] == false ) {
       number++;
     } else if ( activeCard[number - 1] == false ) {
@@ -754,9 +768,14 @@ function getRandomPve() {
       number -= 7;
     } else if ( activeCard[number + 7] == false ) {
       number += 7;
+    } else if ( activeCard[number - 8] == false ) {
+      number -= 8;
+    } else if ( activeCard[number + 8] == false ) {
+      number += 8;
     }
   }
   return number;
+
 }
 
 varEve.addEventListener('click', () => {
@@ -774,14 +793,14 @@ varEve.addEventListener('click', () => {
         card[number].classList.add("circles");
         card[number].style.cursor = "default";
         now = false;
-        winner.innerHTML = "Сейчас ходят - Крестики";
+        winner.innerHTML = "ЗАРАЗ ХОДЯТЬ - ХРЕСТИКИ";
         activeCard[number] = true;
 
       } else if (now == false) {
         card[number].classList.add("cross");
         card[number].style.cursor = "default";
         now = true;
-        winner.innerHTML = "Сейчас ходят - Нолики";
+        winner.innerHTML = "ЗАРАЗ ХОДЯТЬ - НОЛІКИ";
         activeCard[number] = true;
       }
       arrAct[number] = true;
